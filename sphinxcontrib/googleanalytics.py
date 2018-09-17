@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from sphinx.application import ExtensionError
+from sphinx.errors import ExtensionError
 
 def add_ga_javascript(app, pagename, templatename, context, doctree):
     if not app.config.googleanalytics_enabled:
@@ -31,4 +31,4 @@ def setup(app):
     app.add_config_value('googleanalytics_enabled', True, 'html')
     app.connect('html-page-context', add_ga_javascript)
     app.connect('builder-inited', check_config)
-    return {'version': '0.1'}
+    return {'version': '0.1.1'}
